@@ -1,0 +1,20 @@
+{
+    "name": "jaaulde/php-ipv4",
+    "description": "IPV4 network classes",
+    "keywords": ["ip", "ipv4", "network", "subnet", "cidr"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jim Auldridge",
+            "email": "auldridgej@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    },
+    "require": {
+        "php": ">5.3.0"
+    }
+}
