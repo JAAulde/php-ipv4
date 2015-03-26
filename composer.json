@@ -2,7 +2,7 @@
     "name": "jaaulde/php-ipv4",
     "type": "library",
     "description": "PHP classes for working with IPV4 addresses and networks.",
-    "keywords": ["ip", "ipv4", "network", "subnet", "cidr", "range", blacklist", "whitelist", "ban"],
+    "keywords": ["ip", "ipv4", "network", "subnet", "cidr", "range", "blacklist", "whitelist", "ban"],
     "homepage": "https://github.com/JAAulde/php-ipv4",
     "license": "MIT",
     "authors": [
