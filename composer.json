@@ -1,20 +1,28 @@
 {
     "name": "jaaulde/php-ipv4",
-    "description": "IPV4 network classes",
-    "keywords": ["ip", "ipv4", "network", "subnet", "cidr"],
+    "type": "library",
+    "description": "PHP classes for working with IPV4 addresses and networks.",
+    "keywords": ["ip", "ipv4", "network", "subnet", "cidr", "range", blacklist", "whitelist", "ban"],
+    "homepage": "https://github.com/JAAulde/php-ipv4",
     "license": "MIT",
     "authors": [
         {
             "name": "Jim Auldridge",
-            "email": "auldridgej@gmail.com"
+            "email": "auldridgej@gmail.com",
+            "homepage": "http://jaaulde.com",
+            "role": "developer"
         }
     ],
+    "support": {
+        "issues": "https://github.com/JAAulde/php-ipv4/issues",
+        "source": "https://github.com/JAAulde/php-ipv4"
+    },
+    "require": {
+        "php": ">=5.3.0"
+    },
     "autoload": {
         "psr-4": {
             "JAAulde\\IP\\V4\\": "src/"
         }
-    },
-    "require": {
-        "php": ">5.3.0"
     }
 }
