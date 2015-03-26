@@ -8,7 +8,6 @@ namespace JAAulde\IP\V4;
  * @author Jim Auldridge <auldridgej@gmail.com>
  * @copyright 2006-2015 Jim Auldridge
  * @license MIT
- * @api
  */
 class Address {
     const FORMAT_DOTTED_NOTATION = 0;
@@ -20,7 +19,6 @@ class Address {
     protected $value;
 
     /**
-     * @api
      * @param string|int $ip The IP address (in dot-notation-string format or integer) to be represented by the instance
      * @return self
      */
@@ -31,7 +29,6 @@ class Address {
     /**
      * Format and validate for given string or integer formatted IPV4 network address
      *
-     * @internal
      * @param string|int $ip The IP address (in dot-notation-string format or integer) to be represented by the instance
      * @return void
      * @throws Exception
@@ -69,8 +66,7 @@ class Address {
 
     /**
      * Set the value of the address to the integer representation (compensating for addresses which converted to negative on 32bit systems)
-     * 
-     * @internal
+     *
      * @param int $ip The IP address, now coerced to integer, to be represented by the instance
      * @return void
      */
@@ -85,7 +81,6 @@ class Address {
     /**
      * Get the integer or dot-notated-string representation of the address
      *
-     * @api
      * @param int $format Whether to return as integer (\JAAulde\IP\V4\Address::FORMAT_LONG_NOTATION) or dot-notation-string (\JAAulde\IP\V4\Address::FORMAT_DOTTED_NOTATION)
      * @return string|int
      */
