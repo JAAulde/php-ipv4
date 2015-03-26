@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "JAAulde-IP-V4": "src/"
+            "JAAulde\\IP\\V4": "src/"
         }
     },
     "require": {
