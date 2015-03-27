@@ -45,7 +45,7 @@ class SubnetMask extends Address {
      * @param \JAAulde\IP\V4\Address $address2
      */
     public static function calculateCIDRToFit (Address $address1, Address $address2)  {
-        return floor(32 - log(($address1 ^ $address2) + 1, 2));
+        return floor(32 - log(($address1->get() ^ $address2->get()) + 1, 2));
     }
 
     /**
