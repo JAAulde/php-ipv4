@@ -34,7 +34,7 @@ class Block Extends Range {
             $subnetMask = SubnetMask::fromCIDRPrefix((int) preg_replace('/[^\d]/', '', (string) $a2));
         }
 
-        if (!($a2 instanceof SubnetMask)) {
+        if (!($subnetMask instanceof SubnetMask)) {
             throw new \Exception(__METHOD__ . ' could not derive a subnet mask. See documentation for second param, $a2.');
         }
 
