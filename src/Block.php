@@ -40,7 +40,7 @@ class Block Extends Range {
 
         $this->subnetMask = $subnetMask;
 
-        parent::__construct(self::calculateNetworkAddress($a1, $a2), self::calculateBroadcastAddress($a1, $a2));
+        parent::__construct(self::calculateNetworkAddress($a1, $subnetMask), self::calculateBroadcastAddress($a1, $subnetMask));
     }
 
     /**
