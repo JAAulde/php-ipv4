@@ -25,7 +25,7 @@ class SubnetMask extends Address {
      * @return integer
      */
     public function getNetworkBitsCount () {
-        return 32 - log(($this->get() ^ ip2long('255.255.255.255')) + 1, 2);
+        return (int) (32 - log(($this->get() ^ ip2long('255.255.255.255')) + 1, 2));
     }
 
     /**
@@ -45,7 +45,7 @@ class SubnetMask extends Address {
      * @param \JAAulde\IP\V4\Address $address2
      */
     public static function calculateCIDRToFit (Address $address1, Address $address2)  {
-        return floor(32 - log(($address1->get() ^ $address2->get()) + 1, 2));
+        return (int) floor(32 - log(($address1->get() ^ $address2->get()) + 1, 2));
     }
 
     /**
