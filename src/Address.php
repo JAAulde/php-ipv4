@@ -10,7 +10,18 @@ namespace JAAulde\IP\V4;
  * @license MIT
  */
 class Address {
+    /**
+     * Used to request dot-notated string representation of IP from \JAAulde\IP\V4\Address::get
+     * @const
+     * @see \JAAulde\IP\V4\Address::get
+     */
     const FORMAT_DOTTED_NOTATION = 0;
+    /**
+     * Used to request integer repreentation of IP from \JAAulde\IP\V4\Address::get
+     *
+     * @const 
+     * @see \JAAulde\IP\V4\Address::get
+     */
     const FORMAT_LONG_NOTATION = 1;
 
     /**

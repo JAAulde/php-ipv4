@@ -51,7 +51,7 @@ class SubnetMask extends Address {
     /**
      * Factory method for producing a SubnetMask instance from a CIDR (slash notation) prefix size
      *
-     * @return integer $prefixSize Number of network bits to be represented by the subnet mask
+     * @param integer $prefixSize Number of network bits to be represented by the subnet mask
      * @return self
      * @throws Exception
      */
