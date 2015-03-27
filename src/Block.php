@@ -9,69 +9,54 @@ namespace JAAulde\IP\V4;
  * @copyright 2006-2015 Jim Auldridge
  * @license MIT
  */
-class Block {
+class Block Extends Range {
     /**
-     * @var \JAAulde\IP\V4\Address $networkAddress The network address (first IP in range) of the block being represented
-     */
-    protected $networkAddress;
-    /**
-     * @var \JAAulde\IP\V4\Address $broadcastAddress The broadcast address (last IP in range) of the block being represented
-     */
-    protected $broadcastAddress;
-    /**
-     * @var \JAAulde\IP\V4\SubnetMask $$subnetMask The subnetmask of the represented block
+     * @var \JAAulde\IP\V4\SubnetMask $subnetMask The subnetmask of the represented block
      */
     protected $subnetMask;
 
     /**
-     * @param \JAAulde\IP\V4\Address $networkAddress The network address (first IP in range) of the block being created
-     * @param \JAAulde\IP\V4\Address $broadcastAddress The broadcast address (last IP in range) of the block being created
+     * @param \JAAulde\IP\V4\Address $a1
+     * @param \JAAulde\IP\V4\Address|\JAAulde\IP\V4\SubnetMask|integer|string $a2
      * @return self
      * @throws Exception
-     */
-    public function __construct (Address $networkAddress, Address $broadcastAddress) {
-        if ($networkAddress->get() > $broadcastAddress->get()) {
-            throw new \Exception(__METHOD__ . ' first param, $networkAddress, cannot be higher address than second param, $broadcastAddress');
-        }
-
-        $this->networkAddress = $networkAddress;
-        $this->broadcastAddress = $broadcastAddress;
-
-        if (!isset($this->subnetMask)) {
-            $this->subnetMask = SubnetMask::fromCIDRPrefixSize($this->getNetworkBitsCount());
-        }
-    }
-
-    /**
-     * Determine if a given IPV4 network address is contained within this block
      *
-     * @param \JAAulde\IP\V4\Address $address The address we want to know about
-     * @return bool
+     * @todo provide param descriptions for $a1 and $a2
      */
-    public function contains (Address $address) {
-        $addressValue = $address->get();
+    public function __construct (Address $a1, $a2) {
+        if (is_int($a2) || is_string($a2)) {
+            $a2 = SubnetMask::fromCIDRPrefixSize((int) preg_replace('/[^\d]/', '', (string) $a2));
+        }
 
-        return $addressValue >= $this->networkAddress->get() && $addressValue <= $this->broadcastAddress->get();
+        if ($a2 instanceof SubnetMask) {
+            parent::__construct(self::calculateNetworkAddress($a1, $a2), self::calculateBroadcastAddress($a1, $a2));
+            $this->subnetMask = $a2;
+        } else if ($a2 instanceof Address) {
+            parent::__construct($a1, $a2);
+            $this->subnetMask = SubnetMask::fromCIDRPrefixSize($this->getNetworkBitsCount());
+        } else {
+            throw new Exception('');
+        }
     }
 
     /**
-     * Determine if a given IPV4 network address is this block's network address (first address in range)
+     * Determine if a given IPV4 address is this block's network address (first address in range)
      *
      * @param \JAAulde\IP\V4\Address $address The address we want to know about
      * @return bool
      */
     public function isNetworkAddress (Address $address) {
-        return $address->get() === $this->networkAddress->get();
+        return $address->get() === $this->firstAddress->get();
     }
 
     /**
-     * Determine if a given IPV4 network address is this block's broadcast address (last address in range)
+     * Determine if a given IPV4 address is this block's broadcast address (last address in range)
      *
      * @param \JAAulde\IP\V4\Address $address The address we want to know about
      * @return bool
      */
     public function isBroadcastAddress (Address $address) {
-        return $address->get() === $this->broadcastAddress->get();
+        return $address->get() === $this->lastAddress->get();
     }
 
     /**
@@ -80,7 +65,7 @@ class Block {
      * @return \JAAulde\IP\V4\Address
      */
     public function getNetworkAddress () {
-        return $this->networkAddress;
+        return $this->firstAddress;
     }
 
     /**
@@ -89,7 +74,7 @@ class Block {
      * @return \JAAulde\IP\V4\Address
      */
     public function getBroadcastAddress () {
-        return $this->broadcastAddress;
+        return $this->lastAddress;
     }
 
     /**
@@ -107,7 +92,7 @@ class Block {
      * @return integer
      */
     public function getHostBitsCount () {
-        return levenshtein(decbin($this->networkAddress->get()), decbin($this->broadcastAddress->get()));
+        return levenshtein(decbin($this->firstAddress->get()), decbin($this->lastAddress->get()));
     }
 
     /**
