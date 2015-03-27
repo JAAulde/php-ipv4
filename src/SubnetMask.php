@@ -10,12 +10,8 @@ namespace JAAulde\IP\V4;
  * @license MIT
  */
 class SubnetMask extends Address {
-    public function getCIDRPrefix () {
-        return $this->getNetworkBitsCount();
-    }
-
     /**
-     * Retrieve the number of host bits represented in this block
+     * Retrieve the number of host bits denoted by this mask
      *
      * @return integer
      */
@@ -24,7 +20,7 @@ class SubnetMask extends Address {
     }
 
     /**
-     * Retrieve the number of network bits represented in this block
+     * Retrieve the number of network bits denoted by this mask
      *
      * @return integer
      */
@@ -33,8 +29,29 @@ class SubnetMask extends Address {
     }
 
     /**
+     * Alias to SubnetMask::getNetworkBitsCount
+     *
+     * @uses SubnetMask::getNetworkBitsCount
+     * @return integer
+     */
+    public function getCIDRPrefix () {
+        return $this->getNetworkBitsCount();
+    }
+
+    /**
+     * Given two (2) IP (V4) addresses, calculate a CIDR prefix for the network which could contain them both
+     *
+     * @param \JAAulde\IP\V4\Address $address1
+     * @param \JAAulde\IP\V4\Address $address2
+     */
+    public static function calculateCIDRToFit (Address $address1, Address $address2)  {
+        return floor(32 - log(($address1 ^ $address2) + 1, 2));
+    }
+
+    /**
      * Factory method for producing a SubnetMask instance from a CIDR (slash notation) prefix size
      *
+     * @return integer $prefixSize Number of network bits to be represented by the subnet mask
      * @return self
      * @throws Exception
      */

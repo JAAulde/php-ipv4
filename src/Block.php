@@ -28,10 +28,14 @@ class Block Extends Range {
 
         if ($a2 instanceof SubnetMask) {
             $subnetMask = $a2;
-        } else if ($a2 instanceof Address) {
-            $subnetMask = SubnetMask::fromCIDRPrefix(self::calculateCIDRToFit($a1, $a2));
-        } else if (is_int($a2) || is_string($a2)) {
-            $subnetMask = SubnetMask::fromCIDRPrefix((int) preg_replace('/[^\d]/', '', (string) $a2));
+        } else {
+            if ($a2 instanceof Address) {
+                $a2 = SubnetMask::calculateCIDRToFit($a1, $a2);
+            }
+
+            if (is_int($a2) || is_string($a2)) {
+                $subnetMask = SubnetMask::fromCIDRPrefix((int) preg_replace('/[^\d]/', '', (string) $a2));
+            }
         }
 
         if (!($subnetMask instanceof SubnetMask)) {
@@ -64,25 +68,27 @@ class Block Extends Range {
     }
 
     /**
-     * Retrieve this block's network address (first address in range)
+     * Retrieve the block's network address (first address in range) (Alias to Range::getFirstAddress)
      *
+     * @uses Range::getFirstAddress
      * @return \JAAulde\IP\V4\Address
      */
     public function getNetworkAddress () {
-        return $this->firstAddress;
+        return $this->getFirstAddress();
     }
 
     /**
-     * Retrieve this block's broadcast address (last address in range)
+     * Retrieve the block's broadcast address (last address in range). (Alias to Range::getLastAddress)
      *
+     * @uses Range::getLastAddress
      * @return \JAAulde\IP\V4\Address
      */
     public function getBroadcastAddress () {
-        return $this->lastAddress;
+        return $this->getLastAddress;
     }
 
     /**
-     * Retrieve this block's subnet mask
+     * Retrieve the block's subnet mask
      *
      * @return \JAAulde\IP\V4\SubnetMask
      */
@@ -96,7 +102,7 @@ class Block Extends Range {
      * @return integer
      */
     public function getAddressCount () {
-        return pow(2, $this->getHostBitsCount());
+        return pow(2, $this->subnetMask->getHostBitsCount());
     }
 
     /**
@@ -131,10 +137,5 @@ class Block Extends Range {
      */
     public static function calculateBroadcastAddress (Address $address, SubnetMask $subnetMask) {
         return new Address($address->get() | ~$subnetMask->get());
-    }
-
-
-    public static function calculateCIDRToFit (Address $address, Address $address)  {
-        return floor(32 - log(($address ^ $address) + 1, 2));
     }
 }
