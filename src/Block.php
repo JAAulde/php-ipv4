@@ -16,12 +16,11 @@ class Block Extends Range {
     protected $subnetMask;
 
     /**
-     * @param \JAAulde\IP\V4\Address $a1
-     * @param \JAAulde\IP\V4\Address|\JAAulde\IP\V4\SubnetMask|integer|string $a2
+     * @param \JAAulde\IP\V4\Address $a1 The base address with which the network and broadcast addresses if this block will be calculated
+     * @param \JAAulde\IP\V4\SubnetMask|integer|string|\JAAulde\IP\V4\Address $a2 A subnet mask to determine the size of this block, or a CIDR prefix
+     *        for calculating a subnet mask, or a second address to fit into the derived block.
      * @return self
      * @throws Exception
-     *
-     * @todo provide param descriptions for $a1 and $a2
      */
     public function __construct (Address $a1, $a2) {
         $subnetMask = null;
