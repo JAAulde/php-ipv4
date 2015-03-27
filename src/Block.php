@@ -35,7 +35,7 @@ class Block Extends Range {
         }
 
         if (!($a2 instanceof SubnetMask)) {
-            throw new Exception(__METHOD__ . ' could not derive a subnet mask. See documentation for second param, $a2.');
+            throw new \Exception(__METHOD__ . ' could not derive a subnet mask. See documentation for second param, $a2.');
         }
 
         $this->subnetMask = $subnetMask;
