@@ -24,19 +24,23 @@ class Block Extends Range {
      * @todo provide param descriptions for $a1 and $a2
      */
     public function __construct (Address $a1, $a2) {
-        if (is_int($a2) || is_string($a2)) {
-            $a2 = SubnetMask::fromCIDRPrefixSize((int) preg_replace('/[^\d]/', '', (string) $a2));
-        }
+        $subnetMask = null;
 
         if ($a2 instanceof SubnetMask) {
-            parent::__construct(self::calculateNetworkAddress($a1, $a2), self::calculateBroadcastAddress($a1, $a2));
-            $this->subnetMask = $a2;
+            $subnetMask = $a2;
         } else if ($a2 instanceof Address) {
-            parent::__construct($a1, $a2);
-            $this->subnetMask = SubnetMask::fromCIDRPrefixSize($this->getNetworkBitsCount());
-        } else {
-            throw new Exception('');
+            $subnetMask = SubnetMask::fromCIDRPrefix(self::calculateCIDRToFit($a1, $a2));
+        } else if (is_int($a2) || is_string($a2)) {
+            $subnetMask = SubnetMask::fromCIDRPrefix((int) preg_replace('/[^\d]/', '', (string) $a2));
         }
+
+        if (!($a2 instanceof SubnetMask)) {
+            throw new Exception(__METHOD__ . ' could not derive a subnet mask. See documentation for second param, $a2.');
+        }
+
+        $this->subnetMask = $subnetMask;
+
+        parent::__construct(self::calculateNetworkAddress($a1, $a2), self::calculateBroadcastAddress($a1, $a2));
     }
 
     /**
@@ -87,24 +91,6 @@ class Block Extends Range {
     }
 
     /**
-     * Retrieve the number of host bits represented in this block
-     *
-     * @return integer
-     */
-    public function getHostBitsCount () {
-        return levenshtein(decbin($this->firstAddress->get()), decbin($this->lastAddress->get()));
-    }
-
-    /**
-     * Retrieve the number of network bits represented in this block
-     *
-     * @return integer
-     */
-    public function getNetworkBitsCount () {
-        return 32 - $this->getHostBitsCount();
-    }
-
-    /**
      * Retrieve the total number of IPV4 addresses represented in this block
      *
      * @return integer
@@ -145,5 +131,10 @@ class Block Extends Range {
      */
     public static function calculateBroadcastAddress (Address $address, SubnetMask $subnetMask) {
         return new Address($address->get() | ~$subnetMask->get());
+    }
+
+
+    public static function calculateCIDRToFit (Address $address, Address $address)  {
+        return floor(32 - log(($address ^ $address) + 1, 2));
     }
 }

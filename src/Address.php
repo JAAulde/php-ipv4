@@ -3,7 +3,7 @@
 namespace JAAulde\IP\V4;
 
 /**
- * Represents an IPV4 Network Address
+ * Represents an IP(V4) Address
  *
  * @author Jim Auldridge <auldridgej@gmail.com>
  * @copyright 2006-2015 Jim Auldridge
@@ -14,9 +14,9 @@ class Address {
     const FORMAT_LONG_NOTATION = 1;
 
     /**
-     * @var integer $value The integer value of the address (generally produced by ip2long())
+     * @var integer $address The integer value of the address (generally produced by ip2long())
      */
-    protected $value;
+    protected $address;
 
     /**
      * @param string|int $ip The IP address (in dot-notation-string format or integer) to be represented by the instance
@@ -70,12 +70,12 @@ class Address {
      * @param int $ip The IP address, now coerced to integer, to be represented by the instance
      * @return void
      */
-    protected function set ($value) {
+    protected function set ($address) {
         /*
             PHP notes that some IP conversions will result in negative numbers on 32Bit architectures ( http://php.net/manual/en/function.ip2long.php#refsect1-function.ip2long-notes )
             We're accounting for this. See note at http://php.net/manual/en/function.ip2long.php#88345 about "Convert IP to unsigned long"
         */
-        $this->value = (int) $value + ((int) $value < 0 ? 4294967296 : 0);
+        $this->address = (int) $address + ((int) $address < 0 ? 4294967296 : 0);
     }
 
     /**
@@ -85,6 +85,6 @@ class Address {
      * @return string|int
      */
     public function get ($format = Address::FORMAT_LONG_NOTATION) {
-        return $format === Address::FORMAT_DOTTED_NOTATION ? long2ip($this->value) : $this->value;
+        return $format === Address::FORMAT_DOTTED_NOTATION ? long2ip($this->address) : $this->address;
     }
 }

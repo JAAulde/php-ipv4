@@ -3,7 +3,7 @@
 namespace JAAulde\IP\V4;
 
 /**
- * Represents an IPv4 subnet mask
+ * Represents an IP(V4) subnet mask
  *
  * @author Jim Auldridge <auldridgej@gmail.com>
  * @copyright 2006-2015 Jim Auldridge
@@ -11,16 +11,34 @@ namespace JAAulde\IP\V4;
  */
 class SubnetMask extends Address {
     public function getCIDRPrefix () {
-        return null;
+        return $this->getNetworkBitsCount();
     }
-    
+
+    /**
+     * Retrieve the number of host bits represented in this block
+     *
+     * @return integer
+     */
+    public function getHostBitsCount () {
+        return 32 - $this->getNetworkBitsCount();
+    }
+
+    /**
+     * Retrieve the number of network bits represented in this block
+     *
+     * @return integer
+     */
+    public function getNetworkBitsCount () {
+        return 32 - log(($this->get() ^ ip2long('255.255.255.255')) + 1, 2);
+    }
+
     /**
      * Factory method for producing a SubnetMask instance from a CIDR (slash notation) prefix size
      *
      * @return self
      * @throws Exception
      */
-    public static function fromCIDRPrefixSize ($prefixSize) {
+    public static function fromCIDRPrefix ($prefixSize) {
         if (!is_int($prefixSize)) {
             throw new \Exception(__METHOD__ . ' requires first param, $prefixSize, to be an integer');
         }
