@@ -29,9 +29,9 @@ class SubnetMask extends Address {
     }
 
     /**
-     * Alias to SubnetMask::getNetworkBitsCount
+     * Alias to \JAAulde\IP\V4\SubnetMask::getNetworkBitsCount
      *
-     * @uses SubnetMask::getNetworkBitsCount
+     * @uses \JAAulde\IP\V4\SubnetMask::getNetworkBitsCount
      * @return integer
      */
     public function getCIDRPrefix () {

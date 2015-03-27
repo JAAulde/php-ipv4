@@ -87,4 +87,14 @@ class Address {
     public function get ($format = Address::FORMAT_LONG_NOTATION) {
         return $format === Address::FORMAT_DOTTED_NOTATION ? long2ip($this->address) : $this->address;
     }
+
+    /**
+     * Output dotted notation on conversion to string
+     *
+     * @uses \JAAulde\IP\V4\Address::get
+     * @return string
+     */
+    public function __toString () {
+        return $this->get(Address::FORMAT_DOTTED_NOTATION);
+    }
 }

@@ -68,9 +68,9 @@ class Block Extends Range {
     }
 
     /**
-     * Retrieve the block's network address (first address in range) (Alias to Range::getFirstAddress)
+     * Retrieve the block's network address (first address in range) (Alias to \JAAulde\IP\V4\Range::getFirstAddress)
      *
-     * @uses Range::getFirstAddress
+     * @uses \JAAulde\IP\V4\Range::getFirstAddress
      * @return \JAAulde\IP\V4\Address
      */
     public function getNetworkAddress () {
@@ -78,9 +78,9 @@ class Block Extends Range {
     }
 
     /**
-     * Retrieve the block's broadcast address (last address in range). (Alias to Range::getLastAddress)
+     * Retrieve the block's broadcast address (last address in range). (Alias to \JAAulde\IP\V4\Range::getLastAddress)
      *
-     * @uses Range::getLastAddress
+     * @uses \JAAulde\IP\V4\Range::getLastAddress
      * @return \JAAulde\IP\V4\Address
      */
     public function getBroadcastAddress () {
