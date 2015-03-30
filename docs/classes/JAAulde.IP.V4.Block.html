@@ -144,37 +144,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-690730025"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1051486506"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-690730025" class="accordion-body collapse in">
+            <div id="namespace-1051486506" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1558937292"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-553521357"></a>
                                 <a href="../namespaces/JAAulde.html" style="margin-left: 30px; padding-left: 0">JAAulde</a>
             </div>
-            <div id="namespace-1558937292" class="accordion-body collapse ">
+            <div id="namespace-553521357" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1770357862"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1032383485"></a>
                                 <a href="../namespaces/JAAulde.IP.html" style="margin-left: 30px; padding-left: 0">IP</a>
             </div>
-            <div id="namespace-1770357862" class="accordion-body collapse ">
+            <div id="namespace-1032383485" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1073703354"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1263067390"></a>
                                 <a href="../namespaces/JAAulde.IP.V4.html" style="margin-left: 30px; padding-left: 0">V4</a>
             </div>
-            <div id="namespace-1073703354" class="accordion-body collapse ">
+            <div id="namespace-1263067390" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -439,22 +439,25 @@
             <article class="method">
                 <h3 class="public ">__construct()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">__construct(\JAAulde\IP\V4\Address  <span class="argument">$a1</span>, \JAAulde\IP\V4\SubnetMask|integer|string|\JAAulde\IP\V4\Address  <span class="argument">$a2</span>) : self</pre>
+                <pre class="signature" style="margin-right: 54px;">__construct(\JAAulde\IP\V4\Address|string  <span class="argument">$a1</span>, \JAAulde\IP\V4\SubnetMask|integer|string|\JAAulde\IP\V4\Address  <span class="argument">$a2 = null</span>) : self</pre>
                 <p><em></em></p>
                 
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
-                                <td><a href="../classes/JAAulde.IP.V4.Address.html">\JAAulde\IP\V4\Address</a></td>
+                                <td><a href="../classes/JAAulde.IP.V4.Address.html">\JAAulde\IP\V4\Address</a>|string</td>
                                 <td>$a1 </td>
-                                <td><p>The base address with which the network and broadcast addresses if this block will be calculated</p></td>
+                                <td><p>The base address with which the network and broadcast addresses of this block will be calculated. This can be an
+an instance of \JAAulde\IP\V4\Address, in which case the second paramater will be required, or a string in dot-notated format with optional CIDR
+slash prefix. If a string without CIDR slash prefix, second parameter is required. If there is a CIDR slash prefix, second parameter will be ignored.</p></td>
                             </tr>
                                                     <tr>
                                 <td><a href="../classes/JAAulde.IP.V4.SubnetMask.html">\JAAulde\IP\V4\SubnetMask</a>|integer|string|<a href="../classes/JAAulde.IP.V4.Address.html">\JAAulde\IP\V4\Address</a></td>
                                 <td>$a2 </td>
-                                <td><p>A subnet mask to determine the size of this block, or a CIDR prefix
-for calculating a subnet mask, or a second address to fit into the derived block.</p></td>
+                                <td><p>Optional depending on what was given as the first parameter. This is a subnet mask
+to determine the size of this block, or a CIDR prefix for calculating a subnet mask, or a second \JAAulde\IP\V4\Address instance to fit into the derived
+block.</p></td>
                             </tr>
                                             </table>
                 
@@ -929,7 +932,7 @@ This accounts for the fact that the first and last addresses in a block are used
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on March 27th, 2015 at 00:40.
+                    on March 30th, 2015 at 09:59.
                 </section>
             </section>
         </section>

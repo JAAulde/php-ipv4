@@ -16,14 +16,27 @@ class Block Extends Range {
     protected $subnetMask;
 
     /**
-     * @param \JAAulde\IP\V4\Address $a1 The base address with which the network and broadcast addresses if this block will be calculated
-     * @param \JAAulde\IP\V4\SubnetMask|integer|string|\JAAulde\IP\V4\Address $a2 A subnet mask to determine the size of this block, or a CIDR prefix
-     *        for calculating a subnet mask, or a second address to fit into the derived block.
+     * @param \JAAulde\IP\V4\Address|string $a1 The base address with which the network and broadcast addresses of this block will be calculated. This can be an
+     *        an instance of \JAAulde\IP\V4\Address, in which case the second paramater will be required, or a string in dot-notated format with optional CIDR
+     *        slash prefix. If a string without CIDR slash prefix, second parameter is required. If there is a CIDR slash prefix, second parameter will be ignored.
+     * @param \JAAulde\IP\V4\SubnetMask|integer|string|\JAAulde\IP\V4\Address $a2 Optional depending on what was given as the first parameter. This is a subnet mask
+     *        to determine the size of this block, or a CIDR prefix for calculating a subnet mask, or a second \JAAulde\IP\V4\Address instance to fit into the derived
+     *        block.
      * @return self
      * @throws Exception
      */
-    public function __construct (Address $a1, $a2) {
+    public function __construct ($a1, $a2 = null) {
         $subnetMask = null;
+
+        if (is_string($a1)) {
+            list($a1sub1, $a1sub2) = explode('/', $a1, 2);
+
+            $a1 = new Address($a1sub1);
+
+            if ($a1sub2 !== null) {
+                $a2 = $a1sub2;
+            }
+        }
 
         if ($a2 instanceof SubnetMask) {
             $subnetMask = $a2;
