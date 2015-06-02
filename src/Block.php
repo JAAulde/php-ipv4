@@ -9,7 +9,8 @@ namespace JAAulde\IP\V4;
  * @copyright 2006-2015 Jim Auldridge
  * @license MIT
  */
-class Block Extends Range {
+class Block extends Range
+{
     /**
      * @var \JAAulde\IP\V4\SubnetMask $subnetMask The subnetmask of the represented block
      */
@@ -25,7 +26,8 @@ class Block Extends Range {
      * @return self
      * @throws Exception
      */
-    public function __construct ($a1, $a2 = null) {
+    public function __construct($a1, $a2 = null)
+    {
         $subnetMask = null;
 
         if (is_string($a1)) {
@@ -65,7 +67,8 @@ class Block Extends Range {
      * @param \JAAulde\IP\V4\Address $address The address we want to know about
      * @return bool
      */
-    public function isNetworkAddress (Address $address) {
+    public function isNetworkAddress(Address $address)
+    {
         return $address->get() === $this->firstAddress->get();
     }
 
@@ -75,7 +78,8 @@ class Block Extends Range {
      * @param \JAAulde\IP\V4\Address $address The address we want to know about
      * @return bool
      */
-    public function isBroadcastAddress (Address $address) {
+    public function isBroadcastAddress(Address $address)
+    {
         return $address->get() === $this->lastAddress->get();
     }
 
@@ -85,7 +89,8 @@ class Block Extends Range {
      * @uses \JAAulde\IP\V4\Range::getFirstAddress
      * @return \JAAulde\IP\V4\Address
      */
-    public function getNetworkAddress () {
+    public function getNetworkAddress()
+    {
         return $this->getFirstAddress();
     }
 
@@ -95,7 +100,8 @@ class Block Extends Range {
      * @uses \JAAulde\IP\V4\Range::getLastAddress
      * @return \JAAulde\IP\V4\Address
      */
-    public function getBroadcastAddress () {
+    public function getBroadcastAddress()
+    {
         return $this->getLastAddress;
     }
 
@@ -104,7 +110,8 @@ class Block Extends Range {
      *
      * @return \JAAulde\IP\V4\SubnetMask
      */
-    public function getSubnetMask () {
+    public function getSubnetMask()
+    {
         return $this->subnetMask;
     }
 
@@ -113,7 +120,8 @@ class Block Extends Range {
      *
      * @return integer
      */
-    public function getAddressCount () {
+    public function getAddressCount()
+    {
         return pow(2, $this->subnetMask->getHostBitsCount());
     }
 
@@ -125,7 +133,8 @@ class Block Extends Range {
      *
      * @return integer
      */
-    public function getUsableAddressCount () {
+    public function getUsableAddressCount()
+    {
         return $this->getAddressCount() - 2;
     }
 
@@ -136,7 +145,8 @@ class Block Extends Range {
      * @param \JAAulde\IP\V4\SubnetMask $subnetMask The subnet mask (in address form) used in the derivation
      * @return \JAAulde\IP\V4\Address
      */
-    public static function calculateNetworkAddress (Address $address, SubnetMask $subnetMask) {
+    public static function calculateNetworkAddress(Address $address, SubnetMask $subnetMask)
+    {
         return new Address($address->get() & $subnetMask->get());
     }
 
@@ -147,7 +157,8 @@ class Block Extends Range {
      * @param \JAAulde\IP\V4\SubnetMask $subnetMask The subnet mask (in address form) used in the derivation
      * @return \JAAulde\IP\V4\Address
      */
-    public static function calculateBroadcastAddress (Address $address, SubnetMask $subnetMask) {
+    public static function calculateBroadcastAddress(Address $address, SubnetMask $subnetMask)
+    {
         return new Address($address->get() | ~$subnetMask->get());
     }
 }

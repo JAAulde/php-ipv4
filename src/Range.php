@@ -9,7 +9,8 @@ namespace JAAulde\IP\V4;
  * @copyright 2006-2015 Jim Auldridge
  * @license MIT
  */
-class Range {
+class Range
+{
     /**
      * @var \JAAulde\IP\V4\Address $firstAddress The first address in the range being represented
      */
@@ -25,7 +26,8 @@ class Range {
      * @return self
      * @throws Exception
      */
-    public function __construct (Address $firstAddress, Address $lastAddress) {
+    public function __construct(Address $firstAddress, Address $lastAddress)
+    {
         if ($firstAddress->get() > $lastAddress->get()) {
             throw new \Exception(__METHOD__ . ' first param, $firstAddress, cannot be higher address than second param, $lastAddress');
         }
@@ -40,7 +42,8 @@ class Range {
      * @param \JAAulde\IP\V4\Address $address The address we want to know about
      * @return bool
      */
-    public function contains (Address $address) {
+    public function contains(Address $address)
+    {
         $addressValue = $address->get();
 
         return $addressValue >= $this->firstAddress->get() && $addressValue <= $this->lastAddress->get();
@@ -51,7 +54,8 @@ class Range {
      *
      * @return \JAAulde\IP\V4\Address
      */
-    public function getFirstAddress () {
+    public function getFirstAddress()
+    {
         return $this->firstAddress;
     }
 
@@ -60,7 +64,8 @@ class Range {
      *
      * @return \JAAulde\IP\V4\Address
      */
-    public function getLastAddress () {
+    public function getLastAddress()
+    {
         return $this->lastAddress;
     }
 }

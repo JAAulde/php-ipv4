@@ -9,13 +9,15 @@ namespace JAAulde\IP\V4;
  * @copyright 2006-2015 Jim Auldridge
  * @license MIT
  */
-class SubnetMask extends Address {
+class SubnetMask extends Address
+{
     /**
      * Retrieve the number of host bits denoted by this mask
      *
      * @return integer
      */
-    public function getHostBitsCount () {
+    public function getHostBitsCount()
+    {
         return 32 - $this->getNetworkBitsCount();
     }
 
@@ -24,7 +26,8 @@ class SubnetMask extends Address {
      *
      * @return integer
      */
-    public function getNetworkBitsCount () {
+    public function getNetworkBitsCount()
+    {
         return (int) (32 - log(($this->get() ^ ip2long('255.255.255.255')) + 1, 2));
     }
 
@@ -34,7 +37,8 @@ class SubnetMask extends Address {
      * @uses \JAAulde\IP\V4\SubnetMask::getNetworkBitsCount
      * @return integer
      */
-    public function getCIDRPrefix () {
+    public function getCIDRPrefix()
+    {
         return $this->getNetworkBitsCount();
     }
 
@@ -44,7 +48,8 @@ class SubnetMask extends Address {
      * @param \JAAulde\IP\V4\Address $address1
      * @param \JAAulde\IP\V4\Address $address2
      */
-    public static function calculateCIDRToFit (Address $address1, Address $address2)  {
+    public static function calculateCIDRToFit(Address $address1, Address $address2)
+    {
         return (int) floor(32 - log(($address1->get() ^ $address2->get()) + 1, 2));
     }
 
@@ -55,7 +60,8 @@ class SubnetMask extends Address {
      * @return self
      * @throws Exception
      */
-    public static function fromCIDRPrefix ($prefixSize) {
+    public static function fromCIDRPrefix($prefixSize)
+    {
         if (!is_int($prefixSize)) {
             throw new \Exception(__METHOD__ . ' requires first param, $prefixSize, to be an integer');
         }

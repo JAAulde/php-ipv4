@@ -9,7 +9,8 @@ namespace JAAulde\IP\V4;
  * @copyright 2006-2015 Jim Auldridge
  * @license MIT
  */
-class Address {
+class Address
+{
     /**
      * Used to request dot-notated string representation of IP from \JAAulde\IP\V4\Address::get
      * @const
@@ -19,7 +20,7 @@ class Address {
     /**
      * Used to request integer repreentation of IP from \JAAulde\IP\V4\Address::get
      *
-     * @const 
+     * @const
      * @see \JAAulde\IP\V4\Address::get
      */
     const FORMAT_LONG_NOTATION = 1;
@@ -33,7 +34,8 @@ class Address {
      * @param string|int $ip The IP address (in dot-notation-string format or integer) to be represented by the instance
      * @return self
      */
-    public function __construct ($ip) {
+    public function __construct($ip)
+    {
         $this->setFromMixedSource($ip);
     }
 
@@ -44,7 +46,8 @@ class Address {
      * @return void
      * @throws Exception
      */
-    protected function setFromMixedSource ($ip) {
+    protected function setFromMixedSource($ip)
+    {
         if (is_int($ip) || is_string($ip)) {
             if (is_int($ip)) {
                 /*
@@ -81,7 +84,8 @@ class Address {
      * @param int $ip The IP address, now coerced to integer, to be represented by the instance
      * @return void
      */
-    protected function set ($address) {
+    protected function set($address)
+    {
         /*
             PHP notes that some IP conversions will result in negative numbers on 32Bit architectures ( http://php.net/manual/en/function.ip2long.php#refsect1-function.ip2long-notes )
             We're accounting for this. See note at http://php.net/manual/en/function.ip2long.php#88345 about "Convert IP to unsigned long"
@@ -95,7 +99,8 @@ class Address {
      * @param int $format Whether to return as integer (\JAAulde\IP\V4\Address::FORMAT_LONG_NOTATION) or dot-notation-string (\JAAulde\IP\V4\Address::FORMAT_DOTTED_NOTATION)
      * @return string|int
      */
-    public function get ($format = Address::FORMAT_LONG_NOTATION) {
+    public function get($format = Address::FORMAT_LONG_NOTATION)
+    {
         return $format === Address::FORMAT_DOTTED_NOTATION ? long2ip($this->address) : $this->address;
     }
 
@@ -105,7 +110,8 @@ class Address {
      * @uses \JAAulde\IP\V4\Address::get
      * @return string
      */
-    public function __toString () {
+    public function __toString()
+    {
         return $this->get(Address::FORMAT_DOTTED_NOTATION);
     }
 }
