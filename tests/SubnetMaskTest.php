@@ -4,36 +4,37 @@ use \JAAulde\IP\V4\Address;
 use \JAAulde\IP\V4\SubnetMask;
      
 class SubnetMaskTest extends PHPUnit_Framework_TestCase {
-    public function testGetHostBitsCount () {
-        $subnetMask = new SubnetMask('255.255.255.0');
+    const ADDRESS_FIRST_DOTTED = '192.168.0.0';
+    const ADDRESS_LAST_DOTTED = '192.168.0.255';
+    const MASK_DOTTED = '255.255.255.0';
+    const BITCOUNT_NETWORK = 24;
+    const BITCOUNT_HOST = 8;
 
-        $this->assertEquals(8, $subnetMask->getHostBitsCount());
+    private $subnetMask;
+
+    public function __construct () {
+        $this->subnetMask = new SubnetMask(self::MASK_DOTTED);
+
+        parent::__construct();
+    }
+
+    public function testGetHostBitsCount () {
+        $this->assertEquals(self::BITCOUNT_HOST, $this->subnetMask->getHostBitsCount());
     }
 
     public function testGetNetworkBitsCount () {
-        $subnetMask = new SubnetMask('255.255.255.0');
-
-        $this->assertEquals(24, $subnetMask->getNetworkBitsCount());
+        $this->assertEquals(self::BITCOUNT_NETWORK, $this->subnetMask->getNetworkBitsCount());
     }
     
     public function testGetCIDRPrefix () {
-        $subnetMask = new SubnetMask('255.255.255.0');
-
-        $this->assertEquals(24, $subnetMask->getCIDRPrefix());
+        $this->assertEquals(self::BITCOUNT_NETWORK, $this->subnetMask->getCIDRPrefix());
     }
-    
+
     public function testCalculateCIDRToFit () {
-        $firstAddress = new Address('192.168.0.0');
-        $lastAddress = new Address('192.168.0.255');
-
-        $cidr = SubnetMask::calculateCIDRToFit($firstAddress, $lastAddress);
-
-        $this->assertEquals(24, $cidr);
+        $this->assertEquals(self::BITCOUNT_NETWORK, SubnetMask::calculateCIDRToFit(new Address(self::ADDRESS_FIRST_DOTTED), new Address(self::ADDRESS_LAST_DOTTED)));
     }
 
     public function testFromCIDRPrefix () {
-        $subnetMask = SubnetMask::fromCIDRPrefix(24);
-
-        $this->assertEquals('255.255.255.0', $subnetMask->get(Address::FORMAT_DOTTED_NOTATION));
+        $this->assertEquals(self::MASK_DOTTED, SubnetMask::fromCIDRPrefix(self::BITCOUNT_NETWORK)->get(Address::FORMAT_DOTTED_NOTATION));
     }
 }

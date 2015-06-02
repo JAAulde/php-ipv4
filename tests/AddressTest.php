@@ -3,21 +3,26 @@
 use \JAAulde\IP\V4\Address;
      
 class AddressTest extends PHPUnit_Framework_TestCase {
-    public function testFromDotted () {
-        $address = new Address('192.168.0.1');
+    const ADDRESS_ONE_DOTTED = '192.168.0.1';
+    const ADDRESS_ONE_LONG = 3232235521;
+    const ADDRESS_TWO_DOTTED = '10.1.250.255';
+    const ADDRESS_TWO_LONG = 167901951;
 
-        $this->assertEquals(3232235521, $address->get());
-        $this->assertEquals(3232235521, $address->get(Address::FORMAT_LONG_NOTATION));
-        $this->assertEquals('192.168.0.1', $address->get(Address::FORMAT_DOTTED_NOTATION));
-        $this->assertEquals('192.168.0.1', $address . '');
+    public function testFromDotted () {
+        $address = new Address(self::ADDRESS_ONE_DOTTED);
+
+        $this->assertEquals(self::ADDRESS_ONE_LONG, $address->get());
+        $this->assertEquals(self::ADDRESS_ONE_LONG, $address->get(Address::FORMAT_LONG_NOTATION));
+        $this->assertEquals(self::ADDRESS_ONE_DOTTED, $address->get(Address::FORMAT_DOTTED_NOTATION));
+        $this->assertEquals(self::ADDRESS_ONE_DOTTED, $address . '');
     }
 
     public function testFromLong () {
-        $address = new Address(167901951);
+        $address = new Address(self::ADDRESS_TWO_LONG);
 
-        $this->assertEquals(167901951, $address->get());
-        $this->assertEquals(167901951, $address->get(Address::FORMAT_LONG_NOTATION));
-        $this->assertEquals('10.1.250.255', $address->get(Address::FORMAT_DOTTED_NOTATION));
-        $this->assertEquals('10.1.250.255', $address . '');
+        $this->assertEquals(self::ADDRESS_TWO_LONG, $address->get());
+        $this->assertEquals(self::ADDRESS_TWO_LONG, $address->get(Address::FORMAT_LONG_NOTATION));
+        $this->assertEquals(self::ADDRESS_TWO_DOTTED, $address->get(Address::FORMAT_DOTTED_NOTATION));
+        $this->assertEquals(self::ADDRESS_TWO_DOTTED, $address . '');
     }
 }
