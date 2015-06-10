@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class JAAulde\IP\V4\Block</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?a2b5efb503881470385230f40f9bcc3c94d665e7">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">Overview</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-JAAulde.IP.V4.html" title="Summary of JAAulde\IP\V4"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+
+
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-JAAulde.html">
+							JAAulde<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-JAAulde.IP.html">
+							IP<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-JAAulde.IP.V4.html">
+							V4						</a>
+							</li>
+								</ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-JAAulde.IP.V4.Address.html">Address</a></li>
+				<li class="active"><a href="class-JAAulde.IP.V4.Block.html">Block</a></li>
+				<li><a href="class-JAAulde.IP.V4.Range.html">Range</a></li>
+				<li><a href="class-JAAulde.IP.V4.SubnetMask.html">SubnetMask</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Block</h1>
+
+
+	<div class="description">
+	<p>Represents a block (network) of IPV4 addresses.</p>
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+			<a href="class-JAAulde.IP.V4.Range.html"><span>JAAulde\IP\V4\Range</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>JAAulde\IP\V4\Block</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-JAAulde.html">JAAulde</a>\<a href="namespace-JAAulde.IP.html">IP</a>\<a href="namespace-JAAulde.IP.V4.html">V4</a><br>
+		
+
+				<b>Copyright:</b>
+				2006-2015 Jim Auldridge<br>
+				<b>License:</b>
+				<a href="MIT">MIT</a><br>
+				<b>Author:</b>
+				Jim Auldridge <a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;&#58;&#x61;&#x75;&#108;&#x64;&#x72;&#105;&#x64;&#x67;&#101;&#x6a;&#x40;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#x61;&#x75;&#108;&#x64;&#x72;&#105;&#x64;&#x67;&#101;&#x6a;&#x40;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a><br>
+			<b>Located at</b> <a href="source-class-JAAulde.IP.V4.Block.html#5-176" title="Go to source code">Block.php</a>
+		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-JAAulde.IP.V4.Block.html">JAAulde\IP\V4\Block</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-JAAulde.IP.V4.Block.html#19-68" title="Go to source code">__construct</a>( <span><code><a href="class-JAAulde.IP.V4.Address.html">JAAulde\IP\V4\Address</a></code>|string <var>$a1</var></span>, <span><code><a href="class-JAAulde.IP.V4.SubnetMask.html">JAAulde\IP\V4\SubnetMask</a></code>|integer|string|<code><a href="class-JAAulde.IP.V4.Address.html">JAAulde\IP\V4\Address</a></code> <var>$a2</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$a1</var></dt>
+						<dd><p>The base address with which the network and broadcast addresses of this block will be calculated. This can be an
+                                                                       an instance of \JAAulde\IP\V4\Address, in which case the second paramater will be required, or a string in dot-notated format with optional CIDR
+                                                                       slash prefix. If a string without CIDR slash prefix, second parameter is required. If there is a CIDR slash prefix, second parameter will be ignored.</p></dd>
+						<dt><var>$a2</var></dt>
+						<dd><p>Optional depending on what was given as the first parameter. This is a subnet mask
+                                                                       to determine the size of this block, or a CIDR prefix for calculating a subnet mask, or a second \JAAulde\IP\V4\Address instance to fit into the derived
+                                                                       block.</p></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-JAAulde.IP.V4.Block.html">JAAulde\IP\V4\Block</a></code>
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						Exception
+					</div>
+
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-JAAulde.IP.V4.Range.html#___construct">JAAulde\IP\V4\Range::__construct</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="isNetworkAddress" id="_isNetworkAddress">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isNetworkAddress">#</a>
+			<code><a href="source-class-JAAulde.IP.V4.Block.html#70-80" title="Go to source code">isNetworkAddress</a>( <span><code><a href="class-JAAulde.IP.V4.Address.html">JAAulde\IP\V4\Address</a></code> <var>$address</var></span> )</code>
+
+			<div class="description short">
+				<p>Determine if a given IPV4 address is this block's network address (first address in range).</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Determine if a given IPV4 address is this block's network address (first address in range).</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$address</var></dt>
+						<dd>The address we want to know about</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="isBroadcastAddress" id="_isBroadcastAddress">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isBroadcastAddress">#</a>
+			<code><a href="source-class-JAAulde.IP.V4.Block.html#82-92" title="Go to source code">isBroadcastAddress</a>( <span><code><a href="class-JAAulde.IP.V4.Address.html">JAAulde\IP\V4\Address</a></code> <var>$address</var></span> )</code>
+
+			<div class="description short">
+				<p>Determine if a given IPV4 address is this block's broadcast address (last address in range).</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Determine if a given IPV4 address is this block's broadcast address (last address in range).</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$address</var></dt>
+						<dd>The address we want to know about</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getNetworkAddress" id="_getNetworkAddress">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-JAAulde.IP.V4.Address.html">JAAulde\IP\V4\Address</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getNetworkAddress">#</a>
+			<code><a href="source-class-JAAulde.IP.V4.Block.html#94-104" title="Go to source code">getNetworkAddress</a>( )</code>
+
+			<div class="description short">
+				<p>Retrieve the block's network address (first address in range) (Alias to \JAAulde\IP\V4\Range::getFirstAddress).</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Retrieve the block's network address (first address in range) (Alias to \JAAulde\IP\V4\Range::getFirstAddress).</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-JAAulde.IP.V4.Address.html">JAAulde\IP\V4\Address</a></code>
+					</div>
+
+
+					<h4>Uses</h4>
+					<div class="list">
+							<code><a href="class-JAAulde.IP.V4.Range.html#_getFirstAddress">JAAulde\IP\V4\Range::getFirstAddress()</a></code><br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getBroadcastAddress" id="_getBroadcastAddress">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-JAAulde.IP.V4.Address.html">JAAulde\IP\V4\Address</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getBroadcastAddress">#</a>
+			<code><a href="source-class-JAAulde.IP.V4.Block.html#106-116" title="Go to source code">getBroadcastAddress</a>( )</code>
+
+			<div class="description short">
+				<p>Retrieve the block's broadcast address (last address in range). (Alias to \JAAulde\IP\V4\Range::getLastAddress).</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Retrieve the block's broadcast address (last address in range). (Alias to \JAAulde\IP\V4\Range::getLastAddress).</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-JAAulde.IP.V4.Address.html">JAAulde\IP\V4\Address</a></code>
+					</div>
+
+
+					<h4>Uses</h4>
+					<div class="list">
+							<code><a href="class-JAAulde.IP.V4.Range.html#_getLastAddress">JAAulde\IP\V4\Range::getLastAddress()</a></code><br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getSubnetMask" id="_getSubnetMask">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-JAAulde.IP.V4.SubnetMask.html">JAAulde\IP\V4\SubnetMask</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getSubnetMask">#</a>
+			<code><a href="source-class-JAAulde.IP.V4.Block.html#118-126" title="Go to source code">getSubnetMask</a>( )</code>
+
+			<div class="description short">
+				<p>Retrieve the block's subnet mask.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Retrieve the block's subnet mask.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-JAAulde.IP.V4.SubnetMask.html">JAAulde\IP\V4\SubnetMask</a></code>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getAddressCount" id="_getAddressCount">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getAddressCount">#</a>
+			<code><a href="source-class-JAAulde.IP.V4.Block.html#128-136" title="Go to source code">getAddressCount</a>( )</code>
+
+			<div class="description short">
+				<p>Retrieve the total number of IPV4 addresses represented in this block.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Retrieve the total number of IPV4 addresses represented in this block.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						integer
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getUsableAddressCount" id="_getUsableAddressCount">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getUsableAddressCount">#</a>
+			<code><a href="source-class-JAAulde.IP.V4.Block.html#138-149" title="Go to source code">getUsableAddressCount</a>( )</code>
+
+			<div class="description short">
+				<p>Retrieve the total number of usable IPV4 addresses represented in this block.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Retrieve the total number of usable IPV4 addresses represented in this block.</p>
+
+<p>The total number of usable addresses is generally considered to be 2 less than the total number prepresented by the block.
+This accounts for the fact that the first and last addresses in a block are used for the network and broadcast addresses.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						integer
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="calculateNetworkAddress" id="_calculateNetworkAddress">
+
+			<td class="attributes"><code>
+				 public static
+				<code><a href="class-JAAulde.IP.V4.Address.html">JAAulde\IP\V4\Address</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_calculateNetworkAddress">#</a>
+			<code><a href="source-class-JAAulde.IP.V4.Block.html#151-162" title="Go to source code">calculateNetworkAddress</a>( <span><code><a href="class-JAAulde.IP.V4.Address.html">JAAulde\IP\V4\Address</a></code> <var>$address</var></span>, <span><code><a href="class-JAAulde.IP.V4.SubnetMask.html">JAAulde\IP\V4\SubnetMask</a></code> <var>$subnetMask</var></span> )</code>
+
+			<div class="description short">
+				<p>Calculate the network address of a Block given an IPV4 network address and SubnetMask.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Calculate the network address of a Block given an IPV4 network address and SubnetMask.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$address</var></dt>
+						<dd>The IP address from which a network address will be derived</dd>
+						<dt><var>$subnetMask</var></dt>
+						<dd>The subnet mask (in address form) used in the derivation</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-JAAulde.IP.V4.Address.html">JAAulde\IP\V4\Address</a></code>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="calculateBroadcastAddress" id="_calculateBroadcastAddress">
+
+			<td class="attributes"><code>
+				 public static
+				<code><a href="class-JAAulde.IP.V4.Address.html">JAAulde\IP\V4\Address</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_calculateBroadcastAddress">#</a>
+			<code><a href="source-class-JAAulde.IP.V4.Block.html#164-175" title="Go to source code">calculateBroadcastAddress</a>( <span><code><a href="class-JAAulde.IP.V4.Address.html">JAAulde\IP\V4\Address</a></code> <var>$address</var></span>, <span><code><a href="class-JAAulde.IP.V4.SubnetMask.html">JAAulde\IP\V4\SubnetMask</a></code> <var>$subnetMask</var></span> )</code>
+
+			<div class="description short">
+				<p>Calculate the broadcast address of a Block given an IPV4 network address and SubnetMask.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Calculate the broadcast address of a Block given an IPV4 network address and SubnetMask.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$address</var></dt>
+						<dd>The IP address from which a broadcast address will be derived</dd>
+						<dt><var>$subnetMask</var></dt>
+						<dd>The subnet mask (in address form) used in the derivation</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-JAAulde.IP.V4.Address.html">JAAulde\IP\V4\Address</a></code>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+		<div class="panel panel-default">
+	        <div class="panel-heading"><h3>Methods inherited from <a href="class-JAAulde.IP.V4.Range.html#methods">JAAulde\IP\V4\Range</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-JAAulde.IP.V4.Range.html#_contains">contains()</a></code>, 
+				<code><a href="class-JAAulde.IP.V4.Range.html#_getFirstAddress">getFirstAddress()</a></code>, 
+				<code><a href="class-JAAulde.IP.V4.Range.html#_getLastAddress">getLastAddress()</a></code>
+			</p>
+		</div>
+
+
+
+
+
+
+
+
+
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h2>Properties summary</h2></div>
+			<table class="summary table table-bordered table-striped properties" id="properties">
+		<tr data-order="subnetMask" id="$subnetMask">
+			<td class="attributes"><code>
+				protected  
+				<code><a href="class-JAAulde.IP.V4.SubnetMask.html">JAAulde\IP\V4\SubnetMask</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-JAAulde.IP.V4.Block.html#14-17" title="Go to source code"><var>$subnetMask</var></a>
+
+				<div class="description short">
+					<p>The subnetmask of the represented block</p>
+				</div>
+
+				<div class="description detailed hidden">
+					<p>The subnetmask of the represented block</p>
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$subnetMask" class="anchor">#</a>
+					<code></code>
+				</div>
+			</td>
+		</tr>
+			</table>
+		</div>
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h3>Properties inherited from <a href="class-JAAulde.IP.V4.Range.html#properties">JAAulde\IP\V4\Range</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-JAAulde.IP.V4.Range.html#$firstAddress"><var>$firstAddress</var></a></code>, 
+				<code><a href="class-JAAulde.IP.V4.Range.html#$lastAddress"><var>$lastAddress</var></a></code>
+			</p>
+		</div>
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
