@@ -1,8 +1,10 @@
 # php-ipv4
 PHP classes for working with IPV4 addresses and networks.
 
-[![PHP version](https://badge.fury.io/ph/JAAulde%2Fphp-ipv4.svg)](http://badge.fury.io/ph/JAAulde%2Fphp-ipv4)
-[![Build Status](https://travis-ci.org/JAAulde/php-ipv4.svg?branch=master)](https://travis-ci.org/JAAulde/php-ipv4) 
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/JAAulde/php-ipv4.svg?style=flat-square)](https://packagist.org/packages/JAAulde/php-ipv4)
+[![Build Status](https://img.shields.io/travis/JAAulde/php-ipv4/master.svg?style=flat-square)](https://travis-ci.org/JAAulde/php-ipv4)
+[![Total Downloads](https://img.shields.io/packagist/dt/JAAulde/php-ipv4.svg?style=flat-square)](https://packagist.org/packages/JAAulde/php-ipv4)
 
 ## installation
 ### [composer](https://getcomposer.org)
