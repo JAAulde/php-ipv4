@@ -43,6 +43,13 @@ class Address
         $this->setFromMixedSource($ip);
     }
 
+    /**
+     * @param string|int $ip The IP address (in dot-notation-string format or integer) to be represented by the instance
+     *
+     * @static
+     *
+     * @return self
+     */
     public static function factory($ip)
     {
         return new self($ip);
