@@ -45,7 +45,7 @@ class BlockTest extends PHPUnit_Framework_TestCase
     {
         $this->makeAssertionsOnBlock(new IPv4\Block('192.168.0.0', '255.255.255.0'));
     }
-    
+
     public function testFromDottedSlashCIDRStr()
     {
         $this->makeAssertionsOnBlock(new IPv4\Block('192.168.0.0', '/24'));

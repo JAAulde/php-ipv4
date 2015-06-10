@@ -53,7 +53,7 @@ class Block extends Range
 
             if (is_string($a2) && count(explode('.', $a2)) === 4) {
                 $subnetMask = new SubnetMask($a2);
-            } else if (is_int($a2) || is_string($a2)) {
+            } elseif (is_int($a2) || is_string($a2)) {
                 $subnetMask = SubnetMask::fromCIDRPrefix((int) preg_replace('/[^\d]/', '', (string) $a2));
             }
         }
