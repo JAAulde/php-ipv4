@@ -102,7 +102,7 @@ class Block extends Range
      */
     public function getBroadcastAddress()
     {
-        return $this->getLastAddress;
+        return $this->getLastAddress();
     }
 
     /**
