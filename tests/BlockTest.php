@@ -63,16 +63,16 @@ class BlockTest extends PHPUnit_Framework_TestCase
 
     public function testFromInstanceCIDRInt()
     {
-        $this->makeAssertionsOnBlock(new IPv4\Block(IPv4\Address::factory('192.168.0.0'), 24));
+        $this->makeAssertionsOnBlock(new IPv4\Block(new IPv4\Address('192.168.0.0'), 24));
     }
 
     public function testFromInstanceDotted()
     {
-        $this->makeAssertionsOnBlock(new IPv4\Block(IPv4\Address::factory('192.168.0.0'), '255.255.255.0'));
+        $this->makeAssertionsOnBlock(new IPv4\Block(new IPv4\Address('192.168.0.0'), '255.255.255.0'));
     }
 
     public function testFromInstanceInstance()
     {
-        $this->makeAssertionsOnBlock(new IPv4\Block(IPv4\Address::factory('192.168.0.0'), new IPv4\SubnetMask('255.255.255.0')));
+        $this->makeAssertionsOnBlock(new IPv4\Block(new IPv4\Address('192.168.0.0'), new IPv4\SubnetMask('255.255.255.0')));
     }
 }

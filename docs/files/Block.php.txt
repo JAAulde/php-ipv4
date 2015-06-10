@@ -33,12 +33,14 @@ class Block extends Range
         $subnetMask = null;
 
         if (is_string($a1)) {
-            list($a1sub1, $a1sub2) = explode('/', $a1, 2);
+            $a1parts = explode('/', $a1, 2);
+            $a1sub1 = $a1parts[0];
+            $a1sub2 = isset($a1parts[1]) ? $a1parts[1] : null;
 
             $a1 = new Address($a1sub1);
 
             if ($a1sub2 !== null) {
-                $a2 = $a1sub2;
+                $a2 = (int) $a1sub2;
             }
         }
 
@@ -49,7 +51,9 @@ class Block extends Range
                 $a2 = SubnetMask::calculateCIDRToFit($a1, $a2);
             }
 
-            if (is_int($a2) || is_string($a2)) {
+            if (is_string($a2) && count(explode('.', $a2)) === 4) {
+                $subnetMask = new SubnetMask($a2);
+            } else if (is_int($a2) || is_string($a2)) {
                 $subnetMask = SubnetMask::fromCIDRPrefix((int) preg_replace('/[^\d]/', '', (string) $a2));
             }
         }

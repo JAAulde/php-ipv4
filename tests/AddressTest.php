@@ -28,24 +28,4 @@ class AddressTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(self::ADDRESS_TWO_DOTTED, $address->get(IPv4\Address::FORMAT_DOTTED_NOTATION));
         $this->assertEquals(self::ADDRESS_TWO_DOTTED, $address.'');
     }
-
-    public function testFromDottedFactory()
-    {
-        $address = IPv4\Address::factory(self::ADDRESS_ONE_DOTTED);
-
-        $this->assertEquals(self::ADDRESS_ONE_LONG, $address->get());
-        $this->assertEquals(self::ADDRESS_ONE_LONG, $address->get(IPv4\Address::FORMAT_LONG_NOTATION));
-        $this->assertEquals(self::ADDRESS_ONE_DOTTED, $address->get(IPv4\Address::FORMAT_DOTTED_NOTATION));
-        $this->assertEquals(self::ADDRESS_ONE_DOTTED, $address.'');
-    }
-
-    public function testFromLongFactory()
-    {
-        $address = IPv4\Address::factory(self::ADDRESS_TWO_LONG);
-
-        $this->assertEquals(self::ADDRESS_TWO_LONG, $address->get());
-        $this->assertEquals(self::ADDRESS_TWO_LONG, $address->get(IPv4\Address::FORMAT_LONG_NOTATION));
-        $this->assertEquals(self::ADDRESS_TWO_DOTTED, $address->get(IPv4\Address::FORMAT_DOTTED_NOTATION));
-        $this->assertEquals(self::ADDRESS_TWO_DOTTED, $address.'');
-    }
 }
