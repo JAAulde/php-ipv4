@@ -39,6 +39,12 @@ class Address
         $this->setFromMixedSource($ip);
     }
 
+
+    public static function factory($ip)
+    {
+        return new self($ip);
+    }
+
     /**
      * Format and validate for given string or integer formatted IPV4 network address
      *
