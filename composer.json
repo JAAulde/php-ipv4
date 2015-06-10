@@ -21,7 +21,7 @@
         "php": ">=5.3.0"
     },
     "require-dev": {
-        "phpdocumentor/phpdocumentor": "2.*",
+        "apigen/apigen": "4.1.*",
         "phpunit/phpunit": "4.6.*",
         "satooshi/php-coveralls": "dev-master"
     },
