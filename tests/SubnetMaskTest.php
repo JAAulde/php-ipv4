@@ -28,7 +28,7 @@ class SubnetMaskTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(self::BITCOUNT_NETWORK, $this->subnetMask->getNetworkBitsCount());
     }
-    
+
     public function testGetCIDRPrefix()
     {
         $this->assertEquals(self::BITCOUNT_NETWORK, $this->subnetMask->getCIDRPrefix());

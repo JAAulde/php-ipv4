@@ -3,7 +3,7 @@
 namespace JAAulde\IP\V4;
 
 /**
- * Represents an IP(V4) Address
+ * Represents an IP(V4) Address.
  *
  * @author Jim Auldridge <auldridgej@gmail.com>
  * @copyright 2006-2015 Jim Auldridge
@@ -12,26 +12,30 @@ namespace JAAulde\IP\V4;
 class Address
 {
     /**
-     * Used to request dot-notated string representation of IP from \JAAulde\IP\V4\Address::get
+     * Used to request dot-notated string representation of IP from \JAAulde\IP\V4\Address::get.
+     *
      * @const
+     *
      * @see \JAAulde\IP\V4\Address::get
      */
     const FORMAT_DOTTED_NOTATION = 0;
     /**
-     * Used to request integer repreentation of IP from \JAAulde\IP\V4\Address::get
+     * Used to request integer repreentation of IP from \JAAulde\IP\V4\Address::get.
      *
      * @const
+     *
      * @see \JAAulde\IP\V4\Address::get
      */
     const FORMAT_LONG_NOTATION = 1;
 
     /**
-     * @var integer $address The integer value of the address (generally produced by ip2long())
+     * @var int The integer value of the address (generally produced by ip2long())
      */
     protected $address;
 
     /**
      * @param string|int $ip The IP address (in dot-notation-string format or integer) to be represented by the instance
+     *
      * @return self
      */
     public function __construct($ip)
@@ -39,17 +43,16 @@ class Address
         $this->setFromMixedSource($ip);
     }
 
-
     public static function factory($ip)
     {
         return new self($ip);
     }
 
     /**
-     * Format and validate for given string or integer formatted IPV4 network address
+     * Format and validate for given string or integer formatted IPV4 network address.
      *
      * @param string|int $ip The IP address (in dot-notation-string format or integer) to be represented by the instance
-     * @return void
+     *
      * @throws Exception
      */
     protected function setFromMixedSource($ip)
@@ -78,17 +81,16 @@ class Address
          * Either way, we want to bail out.
          */
         if ($ip === false) {
-            throw new \Exception(__METHOD__ . ' requires valid IPV4 address string in dot-notation (aaa.bbb.ccc.ddd).');
+            throw new \Exception(__METHOD__.' requires valid IPV4 address string in dot-notation (aaa.bbb.ccc.ddd).');
         }
 
         $this->set($ip);
     }
 
     /**
-     * Set the value of the address to the integer representation (compensating for addresses which converted to negative on 32bit systems)
+     * Set the value of the address to the integer representation (compensating for addresses which converted to negative on 32bit systems).
      *
      * @param int $ip The IP address, now coerced to integer, to be represented by the instance
-     * @return void
      */
     protected function set($address)
     {
@@ -100,24 +102,26 @@ class Address
     }
 
     /**
-     * Get the integer or dot-notated-string representation of the address
+     * Get the integer or dot-notated-string representation of the address.
      *
      * @param int $format Whether to return as integer (\JAAulde\IP\V4\Address::FORMAT_LONG_NOTATION) or dot-notation-string (\JAAulde\IP\V4\Address::FORMAT_DOTTED_NOTATION)
+     *
      * @return string|int
      */
-    public function get($format = Address::FORMAT_LONG_NOTATION)
+    public function get($format = self::FORMAT_LONG_NOTATION)
     {
-        return $format === Address::FORMAT_DOTTED_NOTATION ? long2ip($this->address) : $this->address;
+        return $format === self::FORMAT_DOTTED_NOTATION ? long2ip($this->address) : $this->address;
     }
 
     /**
-     * Output dotted notation on conversion to string
+     * Output dotted notation on conversion to string.
      *
      * @uses \JAAulde\IP\V4\Address::get
+     *
      * @return string
      */
     public function __toString()
     {
-        return $this->get(Address::FORMAT_DOTTED_NOTATION);
+        return $this->get(self::FORMAT_DOTTED_NOTATION);
     }
 }

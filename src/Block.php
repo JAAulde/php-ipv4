@@ -3,7 +3,7 @@
 namespace JAAulde\IP\V4;
 
 /**
- * Represents a block (network) of IPV4 addresses
+ * Represents a block (network) of IPV4 addresses.
  *
  * @author Jim Auldridge <auldridgej@gmail.com>
  * @copyright 2006-2015 Jim Auldridge
@@ -12,18 +12,20 @@ namespace JAAulde\IP\V4;
 class Block extends Range
 {
     /**
-     * @var \JAAulde\IP\V4\SubnetMask $subnetMask The subnetmask of the represented block
+     * @var \JAAulde\IP\V4\SubnetMask The subnetmask of the represented block
      */
     protected $subnetMask;
 
     /**
-     * @param \JAAulde\IP\V4\Address|string $a1 The base address with which the network and broadcast addresses of this block will be calculated. This can be an
-     *        an instance of \JAAulde\IP\V4\Address, in which case the second paramater will be required, or a string in dot-notated format with optional CIDR
-     *        slash prefix. If a string without CIDR slash prefix, second parameter is required. If there is a CIDR slash prefix, second parameter will be ignored.
-     * @param \JAAulde\IP\V4\SubnetMask|integer|string|\JAAulde\IP\V4\Address $a2 Optional depending on what was given as the first parameter. This is a subnet mask
-     *        to determine the size of this block, or a CIDR prefix for calculating a subnet mask, or a second \JAAulde\IP\V4\Address instance to fit into the derived
-     *        block.
+     * @param \JAAulde\IP\V4\Address|string                               $a1 The base address with which the network and broadcast addresses of this block will be calculated. This can be an
+     *                                                                        an instance of \JAAulde\IP\V4\Address, in which case the second paramater will be required, or a string in dot-notated format with optional CIDR
+     *                                                                        slash prefix. If a string without CIDR slash prefix, second parameter is required. If there is a CIDR slash prefix, second parameter will be ignored.
+     * @param \JAAulde\IP\V4\SubnetMask|int|string|\JAAulde\IP\V4\Address $a2 Optional depending on what was given as the first parameter. This is a subnet mask
+     *                                                                        to determine the size of this block, or a CIDR prefix for calculating a subnet mask, or a second \JAAulde\IP\V4\Address instance to fit into the derived
+     *                                                                        block.
+     *
      * @return self
+     *
      * @throws Exception
      */
     public function __construct($a1, $a2 = null)
@@ -53,7 +55,7 @@ class Block extends Range
         }
 
         if (!($subnetMask instanceof SubnetMask)) {
-            throw new \Exception(__METHOD__ . ' could not derive a subnet mask. See documentation for second param, $a2.');
+            throw new \Exception(__METHOD__.' could not derive a subnet mask. See documentation for second param, $a2.');
         }
 
         $this->subnetMask = $subnetMask;
@@ -62,9 +64,10 @@ class Block extends Range
     }
 
     /**
-     * Determine if a given IPV4 address is this block's network address (first address in range)
+     * Determine if a given IPV4 address is this block's network address (first address in range).
      *
      * @param \JAAulde\IP\V4\Address $address The address we want to know about
+     *
      * @return bool
      */
     public function isNetworkAddress(Address $address)
@@ -73,9 +76,10 @@ class Block extends Range
     }
 
     /**
-     * Determine if a given IPV4 address is this block's broadcast address (last address in range)
+     * Determine if a given IPV4 address is this block's broadcast address (last address in range).
      *
      * @param \JAAulde\IP\V4\Address $address The address we want to know about
+     *
      * @return bool
      */
     public function isBroadcastAddress(Address $address)
@@ -84,9 +88,10 @@ class Block extends Range
     }
 
     /**
-     * Retrieve the block's network address (first address in range) (Alias to \JAAulde\IP\V4\Range::getFirstAddress)
+     * Retrieve the block's network address (first address in range) (Alias to \JAAulde\IP\V4\Range::getFirstAddress).
      *
      * @uses \JAAulde\IP\V4\Range::getFirstAddress
+     *
      * @return \JAAulde\IP\V4\Address
      */
     public function getNetworkAddress()
@@ -95,9 +100,10 @@ class Block extends Range
     }
 
     /**
-     * Retrieve the block's broadcast address (last address in range). (Alias to \JAAulde\IP\V4\Range::getLastAddress)
+     * Retrieve the block's broadcast address (last address in range). (Alias to \JAAulde\IP\V4\Range::getLastAddress).
      *
      * @uses \JAAulde\IP\V4\Range::getLastAddress
+     *
      * @return \JAAulde\IP\V4\Address
      */
     public function getBroadcastAddress()
@@ -106,7 +112,7 @@ class Block extends Range
     }
 
     /**
-     * Retrieve the block's subnet mask
+     * Retrieve the block's subnet mask.
      *
      * @return \JAAulde\IP\V4\SubnetMask
      */
@@ -116,9 +122,9 @@ class Block extends Range
     }
 
     /**
-     * Retrieve the total number of IPV4 addresses represented in this block
+     * Retrieve the total number of IPV4 addresses represented in this block.
      *
-     * @return integer
+     * @return int
      */
     public function getAddressCount()
     {
@@ -126,12 +132,12 @@ class Block extends Range
     }
 
     /**
-     * Retrieve the total number of usable IPV4 addresses represented in this block
+     * Retrieve the total number of usable IPV4 addresses represented in this block.
      *
      * The total number of usable addresses is generally considered to be 2 less than the total number prepresented by the block.
      * This accounts for the fact that the first and last addresses in a block are used for the network and broadcast addresses.
      *
-     * @return integer
+     * @return int
      */
     public function getUsableAddressCount()
     {
@@ -139,10 +145,11 @@ class Block extends Range
     }
 
     /**
-     * Calculate the network address of a Block given an IPV4 network address and SubnetMask
+     * Calculate the network address of a Block given an IPV4 network address and SubnetMask.
      *
-     * @param \JAAulde\IP\V4\Address $address The IP address from which a network address will be derived
+     * @param \JAAulde\IP\V4\Address    $address    The IP address from which a network address will be derived
      * @param \JAAulde\IP\V4\SubnetMask $subnetMask The subnet mask (in address form) used in the derivation
+     *
      * @return \JAAulde\IP\V4\Address
      */
     public static function calculateNetworkAddress(Address $address, SubnetMask $subnetMask)
@@ -151,10 +158,11 @@ class Block extends Range
     }
 
     /**
-     * Calculate the broadcast address of a Block given an IPV4 network address and SubnetMask
+     * Calculate the broadcast address of a Block given an IPV4 network address and SubnetMask.
      *
-     * @param \JAAulde\IP\V4\Address $address The IP address from which a broadcast address will be derived
+     * @param \JAAulde\IP\V4\Address    $address    The IP address from which a broadcast address will be derived
      * @param \JAAulde\IP\V4\SubnetMask $subnetMask The subnet mask (in address form) used in the derivation
+     *
      * @return \JAAulde\IP\V4\Address
      */
     public static function calculateBroadcastAddress(Address $address, SubnetMask $subnetMask)
