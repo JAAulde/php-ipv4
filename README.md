@@ -132,13 +132,13 @@ $query = sprintf(
 
 **If the above query returns a result set containing _any_ rows, you know that the client's IP address is on a ban list.** Otherwise, they're allowed to continue. It's that simple--there is no need to even iterate the result set to perform comparisons.
 
-That's not all, though. A better admin interface would allow you to specify any IP and a subnet mask in dot notation or CIDR. `php-ipv4` can make that a breeze as well. Given the same DB schema as before and a form that would POST `address` and `mask` to `ban-ip.php`, you could simply:
+That's not all, though. A better admin interface would allow you to specify any IP and a subnet mask in dot notation or CIDR. `php-ipv4` can make that a breeze as well. Given the same DB schema as before and a form that would POST `address` and `mask` to `ip-ban.php`, you could simply:
 ```php
 <?php
 
 use \JAAulde\IP\V4 as IPv4;
 
-// The same form validation notation from the previous example still stands
+// The same form validation note from the previous example still stands
 $blacklisted_network_block = new IPv4\Block($_POST['address'], $_POST['mask']);
 
 $query = sprintf(
