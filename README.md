@@ -25,6 +25,9 @@ $ composer test
 ## License
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
+## Usage
+...
+
 ## Examples
 - [Hard Coded Whitelist](#user-content-hard-coded-whitelist)
 - [DB Driven Address Blocking](#user-content-db-driven-address-blocking)
@@ -50,7 +53,7 @@ if ($allowed_client_network->contains($client_address)) {
 ```
 
 ### DB Driven Address Blocking
-Many PHP applications allow administrators to set blocks on ranges of abusive IPs to ease moderator work loads. Most of these applications use overly complicated db schemas to store the IP addresses which represent the ranges, and use a series of string manipulations to determine if IPs fall into the banned ranges. By applying the actual math and logic involved in the IPv4 address scheme, `php-ipv4` radically simplifies all of this, and provides a more reliable filtering of IPs.
+Many PHP applications allow administrators to blacklists for ranges of abusive IPs to ease moderator work loads. Most of these applications use overly complicated db schemas to store the IP addresses which represent the ranges, and use a series of string manipulations to determine if IPs fall into the banned ranges. By applying the actual math and logic involved in the IPv4 address scheme, `php-ipv4` radically simplifies all of this, and provides a more reliable filtering of IPs.
 
 An example administrator interface may offer a form something like this for entering ranges to ban:
 ```html
@@ -105,8 +108,6 @@ CREATE TABLE `ip_range_blocks` (
 We could ask the range for the integer value of its first and last addresses and store those.
 ```php
 <?php
-
-use \JAAulde\IP\V4 as IPv4;
 
 $query = sprintf(
     'INSERT INTO `ip_range_blocks` (`first_address`, `last_address`) VALUES (%s, %s);',
