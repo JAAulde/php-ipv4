@@ -20,7 +20,7 @@ class Address
      */
     const FORMAT_DOTTED_NOTATION = 0;
     /**
-     * Used to request integer repreentation of IP from \JAAulde\IP\V4\Address::get.
+     * Used to request integer representation of IP from \JAAulde\IP\V4\Address::get.
      *
      * @const
      *

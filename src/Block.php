@@ -12,13 +12,13 @@ namespace JAAulde\IP\V4;
 class Block extends Range
 {
     /**
-     * @var \JAAulde\IP\V4\SubnetMask The subnetmask of the represented block
+     * @var \JAAulde\IP\V4\SubnetMask The subnet mask of the represented block
      */
     protected $subnetMask;
 
     /**
      * @param \JAAulde\IP\V4\Address|string                               $a1 The base address with which the network and broadcast addresses of this block will be calculated. This can be an
-     *                                                                        an instance of \JAAulde\IP\V4\Address, in which case the second paramater will be required, or a string in dot-notated format with optional CIDR
+     *                                                                        an instance of \JAAulde\IP\V4\Address, in which case the second parameter will be required, or a string in dot-notated format with optional CIDR
      *                                                                        slash prefix. If a string without CIDR slash prefix, second parameter is required. If there is a CIDR slash prefix, second parameter will be ignored.
      * @param \JAAulde\IP\V4\SubnetMask|int|string|\JAAulde\IP\V4\Address $a2 Optional depending on what was given as the first parameter. This is a subnet mask
      *                                                                        to determine the size of this block, or a CIDR prefix for calculating a subnet mask, or a second \JAAulde\IP\V4\Address instance to fit into the derived
@@ -138,7 +138,7 @@ class Block extends Range
     /**
      * Retrieve the total number of usable IPV4 addresses represented in this block.
      *
-     * The total number of usable addresses is generally considered to be 2 less than the total number prepresented by the block.
+     * The total number of usable addresses is generally considered to be 2 less than the total number represented by the block.
      * This accounts for the fact that the first and last addresses in a block are used for the network and broadcast addresses.
      *
      * @return int
