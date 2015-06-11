@@ -8,7 +8,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [PHPUnit](https://phpunit.de) test coverage
 - [Travis CI](https://travis-ci.org) integration
 - README meta and instructions
-- CHANGELOG.md
+- CHANGELOG
+- .gitignore to aid with --prefer-dist
 
 ### Changed
 - Ensure compliance with [PSR-2](http://www.php-fig.org/psr/psr-2/)
