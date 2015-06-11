@@ -15,7 +15,7 @@ $ composer require jaaulde/php-ipv4
 ```
 
 ## Change log
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+Please see [CHANGELOG](CHANGELOG.md) for information about what has changed recently.
 
 ## Testing
 ``` bash
