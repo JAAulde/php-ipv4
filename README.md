@@ -1,5 +1,4 @@
 # php-ipv4
-PHP classes for working with IPV4 addresses and networks.
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://travis-ci.org/JAAulde/php-ipv4.svg?branch=master)](https://travis-ci.org/JAAulde/php-ipv4)
@@ -7,11 +6,24 @@ PHP classes for working with IPV4 addresses and networks.
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/JAAulde/php-ipv4.svg?style=flat-square)](https://packagist.org/packages/JAAulde/php-ipv4)
 [![Total Downloads](https://img.shields.io/packagist/dt/JAAulde/php-ipv4.svg?style=flat-square)](https://packagist.org/packages/JAAulde/php-ipv4)
 
-## installation
-### [composer](https://getcomposer.org)
+PHP classes for working with IPV4 addresses and networks.
+
+## Install
+### via [composer](https://getcomposer.org)
 ```bash
 composer require jaaulde/php-ipv4
 ```
+
+## Change log
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+## Testing
+``` bash
+$ composer test
+```
+
+## License
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
 ## Examples
 - [Hard Coded Whitelist](#user-content-hard-coded-whitelist)
