@@ -128,12 +128,12 @@ use \JAAulde\IP\V4 as IPv4;
 $client_address = new IPv4\Address($_SERVER['REMOTE_ADDR']);
 
 $query = sprintf(
-    'SELECT * FROM `ip_range_blocks` WHERE %s BETWEEN `first_address` AND `last_address`;',
+    'SELECT COUNT(*) FROM `ip_range_blocks` WHERE %s BETWEEN `first_address` AND `last_address`;',
     $client_address->get()
 );
 ```
 
-**If the above query returns a result set containing _any_ rows, you know that the client's IP address is on a ban list.** Otherwise, they're allowed to continue. It's that simple--there is no need to even iterate the result set to perform comparisons.
+**If the above query returns a count greater than 0, you know that the client's IP address is on a ban list.** Otherwise, they're allowed to continue. It's that simple--there is no need ask for the actual data in the rows or iterate and compare.
 
 That's not all, though. A better admin interface would allow you to specify any IP and a subnet mask in dot notation or CIDR. `php-ipv4` can make that a breeze as well. Given the same DB schema as before and a form that would POST `address` and `mask` to `ip-ban.php`, you could simply:
 ```php
