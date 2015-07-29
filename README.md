@@ -30,6 +30,8 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 ...
 
 ## Examples
+_**Warning:** These examples are simplified and without context. Usage of unfiltered/unvalidated request variables (such as from `$_POST`) in these examples is not an endoresement or recommendation to do so in your own projects._
+
 - [Hard Coded Whitelist](#user-content-hard-coded-whitelist)
 - [DB Driven Address Blocking](#user-content-db-driven-address-blocking)
 
