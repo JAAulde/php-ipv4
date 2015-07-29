@@ -21,10 +21,10 @@ class Range
     protected $lastAddress;
 
     /**
+     * Constructor
+     *
      * @param \JAAulde\IP\V4\Address $firstAddress The first address of the range being created
      * @param \JAAulde\IP\V4\Address $lastAddress  The last address of the range being created
-     *
-     * @return self
      *
      * @throws Exception
      */

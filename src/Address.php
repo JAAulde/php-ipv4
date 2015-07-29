@@ -34,9 +34,9 @@ class Address
     protected $address;
 
     /**
+     * Constructor
+     * 
      * @param string|int $ip The IP address (in dot-notation-string format or integer) to be represented by the instance
-     *
-     * @return self
      */
     public function __construct($ip)
     {

@@ -17,14 +17,14 @@ class Block extends Range
     protected $subnetMask;
 
     /**
+     * Constructor
+     *
      * @param \JAAulde\IP\V4\Address|string                               $a1 The base address with which the network and broadcast addresses of this block will be calculated. This can be an
      *                                                                        an instance of \JAAulde\IP\V4\Address, in which case the second parameter will be required, or a string in dot-notated format with optional CIDR
      *                                                                        slash prefix. If a string without CIDR slash prefix, second parameter is required. If there is a CIDR slash prefix, second parameter will be ignored.
      * @param \JAAulde\IP\V4\SubnetMask|int|string|\JAAulde\IP\V4\Address $a2 Optional depending on what was given as the first parameter. This is a subnet mask
      *                                                                        to determine the size of this block, or a CIDR prefix for calculating a subnet mask, or a second \JAAulde\IP\V4\Address instance to fit into the derived
      *                                                                        block.
-     *
-     * @return self
      *
      * @throws Exception
      */
