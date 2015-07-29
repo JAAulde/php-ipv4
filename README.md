@@ -2,6 +2,7 @@
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://travis-ci.org/JAAulde/php-ipv4.svg?branch=master)](https://travis-ci.org/JAAulde/php-ipv4)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/JAAulde/php-ipv4/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/JAAulde/php-ipv4/?branch=master)
 [![Coverage Status](https://coveralls.io/repos/JAAulde/php-ipv4/badge.svg?branch=master)](https://coveralls.io/r/JAAulde/php-ipv4?branch=master)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/JAAulde/php-ipv4.svg?style=flat-square)](https://packagist.org/packages/JAAulde/php-ipv4)
 [![Total Downloads](https://img.shields.io/packagist/dt/JAAulde/php-ipv4.svg?style=flat-square)](https://packagist.org/packages/JAAulde/php-ipv4)
