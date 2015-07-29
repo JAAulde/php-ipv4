@@ -85,7 +85,7 @@ class Address
     /**
      * Set the value of the address to the integer representation (compensating for addresses which converted to negative on 32bit systems).
      *
-     * @param int $ip The IP address, now coerced to integer, to be represented by the instance
+     * @param integer $address
      */
     protected function set($address)
     {
