@@ -126,9 +126,9 @@
 </span><span id="34" class="l">    <span class="php-keyword1">protected</span> <span class="php-var">$address</span>;
 </span><span id="35" class="l">
 </span><span id="36" class="l">    <span class="php-comment">/**
-</span></span><span id="37" class="l"><span class="php-comment">     * @param string|int $ip The IP address (in dot-notation-string format or integer) to be represented by the instance
-</span></span><span id="38" class="l"><span class="php-comment">     *
-</span></span><span id="39" class="l"><span class="php-comment">     * @return self
+</span></span><span id="37" class="l"><span class="php-comment">     * Constructor
+</span></span><span id="38" class="l"><span class="php-comment">     * 
+</span></span><span id="39" class="l"><span class="php-comment">     * @param string|int $ip The IP address (in dot-notation-string format or integer) to be represented by the instance
 </span></span><span id="40" class="l"><span class="php-comment">     */</span>
 </span><span id="41" class="l">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __construct(<span class="php-var">$ip</span>)
 </span><span id="42" class="l">    {
@@ -177,7 +177,7 @@
 </span><span id="85" class="l">    <span class="php-comment">/**
 </span></span><span id="86" class="l"><span class="php-comment">     * Set the value of the address to the integer representation (compensating for addresses which converted to negative on 32bit systems).
 </span></span><span id="87" class="l"><span class="php-comment">     *
-</span></span><span id="88" class="l"><span class="php-comment">     * @param int $ip The IP address, now coerced to integer, to be represented by the instance
+</span></span><span id="88" class="l"><span class="php-comment">     * @param integer $address
 </span></span><span id="89" class="l"><span class="php-comment">     */</span>
 </span><span id="90" class="l">    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> set(<span class="php-var">$address</span>)
 </span><span id="91" class="l">    {
